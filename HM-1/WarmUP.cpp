@@ -8,9 +8,9 @@ using namespace std;
 	 int c = 1; 
 	 int d = d * 2;
 
-   cout << "a:" << a << endl;
-   cout << "b:"<< b << endl;
-   cout << "c:"<< c << endl;
-   cout << "d:"<< d << endl;
+   cout << "a: " << a << endl;
+   cout << "b: "<< b << endl;
+   cout << "c: "<< c << endl;
+   cout << "d: "<< d << endl;
    
  } 

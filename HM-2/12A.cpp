@@ -4,21 +4,21 @@ using namespace std;
 
 int main() {
 
-	float a,
-	cout << "Введите данные" << endl;
+	float a;
+	cout << "Enter a: " << endl;
 	cin >> a;
 
 	float S;
 	S = pow(a, 2) * 6;
-	cout << "S:" << S << endl;
+	cout << "S: " << S << endl;
 
 	float V;
 	V = pow(a, 3);
-	cout << "V:" << V << endl;
+	cout << "V: " << V << endl;
 
 	float SS;
 	SS = a * 12;
-	cout << "SS:" << SS << endl;
+	cout << "SS :" << SS << endl;
   
   
 }
