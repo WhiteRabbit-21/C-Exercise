@@ -1,39 +1,78 @@
-﻿// HomeWork(OOP)-4.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include "Header.h"
+﻿#include "Header.h"
 #include "PhoneBook.h"
 
 int main()
 {
-	/*PhoneBook A("Drunker", "123", "543", "567");
-	A.ShowValues();
+	const int size = 3;
+	PhoneBook Arr[size];
+	int indhold;
+	std::string FindName;
+	std::ofstream out;
 
-	PhoneBook Arr[3];
-	Arr[0].AddContact();
 
-	Arr[0].ShowValues();
-*/  
-	bool ask;
 	do {
+		Arr->ShowActions();
 
-		std::cout << "Do you want to continue? (1-yes/0-no)";
-		std::cin >> ask;
+		switch (Arr->GetChoice()) {
+		case 1:
+			while (true) {
+				std::cout << "Select Num of page (0,1,2) in Book" << std::endl;
+				std::cin >> indhold;
+				std::cout << std::endl;
+				if (indhold == 0 || indhold == 1 || indhold == 2)
+					break;
+			}
 
-	} while (ask);
+			Arr[indhold].AddContact();
+			break;
+		case 2:
+			while (true) {
+				std::cout << "Select Num of page (0,1,2) in Book" << std::endl;
+				std::cin >> indhold;
+				std::cout << std::endl;
+				if (indhold == 0 || indhold == 1 || indhold == 2)
+					break;
+			}
+			Arr[indhold].DeleteContact();
+			break;
+		case 3:
+			for (int i = 0; i < size; i++) {
+				Arr[i].ShowValues();
+			}
+			break;
+		case 4: {
+			std::cout << "Enter Name to find:" << std::endl;
+			std::cin >> FindName;
 
+			bool res = false;
 
+			for (int i = 0; i < size; i++) {
+				res = Arr[i].Check(FindName);
+				if (res == true) {
+					std::cout << "Contact is found" << std::endl;
+					Arr[i].ShowValues();
+					break;
+				}
+			}
 
-	
+			std::cout << "Contact Not Found: " << std::endl;
+			break;
+		}
+		case 5:
+			//std::remove("Hello.txt");
+			out.open("Hello.txt", std::ios::trunc);
+			for (int i = 0; i < size; i++) {
+				Arr[i].WriteFile();
+			}
+			break;
+		case 6:
+			Arr->ReadFromFile();
+			break;
+		case 7: return(0);
+		default: {
+			std::cout << "Action is wrong" << std::endl; }
+		}
+
+	} while (true);
+
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
